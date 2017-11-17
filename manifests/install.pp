@@ -19,13 +19,11 @@ class homebrew::install {
   file { $brew_folders:
     ensure => directory,
     group  => $homebrew::group,
-    mode   => '0775',
   } ->
   file { '/usr/local/Homebrew':
     ensure => directory,
     owner  => $homebrew::user,
     group  => $homebrew::group,
-    mode   => '0775',
   } ->
   exec { 'install-homebrew':
     cwd       => '/usr/local/Homebrew',
@@ -39,7 +37,6 @@ class homebrew::install {
     target => '/usr/local/Homebrew/bin/brew',
     owner  => $homebrew::user,
     group  => $homebrew::group,
-    mode   => '0775',
   }
 
 }
